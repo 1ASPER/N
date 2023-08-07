@@ -27,7 +27,7 @@ aside {
     background-color: rgb(1, 6, 54);
     float: left;
     width: 150px;
-    height: 100vh;
+    height: 100%;
     color: white;
 }
 aside li{

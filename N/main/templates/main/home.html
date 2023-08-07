@@ -7,7 +7,14 @@
 {% endblock %}
 
 {% block content %}
-
+    {% for elem in article %}
+        <img src="media/{{elem.image}}">
+        <h1 style="color: white">{{elem.title}}</h1><br>
+        <p style="color: yellow">{{elem.content}}</p>
+        <a href="{{elem.url}}"></a>
+        <h2 style="color: red">{{elem.slug}}</h2>
+        <br><br>
+    {% endfor %}
 {% endblock %}
 
 {% block aside %}
