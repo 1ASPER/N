@@ -1,4 +1,5 @@
 import os
+from PIL import Image
 from django.db import models
 from datetime import datetime
 
@@ -18,6 +19,17 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
+    #
+    #     if self.image:
+    #         img = Image.open(self.image.path)
+    #         max_width = 250
+    #         width_percent = (max_width / float(img.size[0]))
+    #         height_size = int((float(img.size[1]) * float(width_percent)))
+    #         img = img.resize((max_width, height_size), Image.LANCZOS)
+    #         img.save(self.image.path)
 
 
 

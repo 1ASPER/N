@@ -7,13 +7,15 @@
 {% endblock %}
 
 {% block content %}
-    {% for elem in article %}
-        <img src="media/{{elem.image}}">
-        <h1 style="color: white">{{elem.title}}</h1><br>
-        <p style="color: yellow">{{elem.content}}</p>
-        <a href="{{elem.url}}"></a>
-        <h2 style="color: red">{{elem.slug}}</h2>
-        <br><br>
+    {% for elem, size in combined_data %}
+        <div class="article-content">
+            <img src="media/{{elem.image}}" width="{{ size.0 }}" height="{{ size.1 }}">
+            <h1>{{elem.title}}</h1><br>
+            <p>{{elem.content | truncatewords:60}}</p>
+<!--        <a href="{{elem.url}}"></a>-->
+<!--        <h2>{{elem.slug}}</h2>-->
+            <br><br>
+        </div>
     {% endfor %}
 {% endblock %}
 
@@ -26,5 +28,5 @@
 {% endblock %}
 
 {% block footer %}
-<a href="#">Lorem ipsum dolor sit amet</a>
+    <a href="{% url 'lorem' %}">Lorem ipsum dolor sit amet</a>
 {% endblock %}
