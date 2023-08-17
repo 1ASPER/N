@@ -124,14 +124,24 @@ footer a:visited {
 }
 
 /* content */
+.article-content{
+    background-color: yellow;
+    margin: 1px 40px 60px 220px;
+    border-radius: 5%;
+}
 .article-content h1{
-    background-color: #fdd263;
-    border-radius: 35%;
+    background-color: #000000;
+    color: white;
+    border-radius: 30%;
     float: left;
     display: inline;
 }
 .article-content p{
+    padding-left: 5px;
+    margin-left: 5px;
     background-color: white;
+    font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    font-size: 20px;
 }
 .article-content img{
     /*position: relative;*/

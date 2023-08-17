@@ -6,22 +6,25 @@ from typing import List, Any
 def optimize_image_size(full_content: dict, max_side: int = 350) -> List[list]:
     image_sizes = []  # [w*h]
     for article in full_content:
-        img = Image.open(article.image)
-        width, height = img.size
-
-        if width > max_side or height > max_side:
-            aspect_ratio = width / height
-            if width > height:
-                new_width = max_side
-                new_height = int(max_side / aspect_ratio)
-            else:
-                new_height = max_side
-                new_width = int(max_side * aspect_ratio)
+        if article.image:
+            image_sizes.append([0, 0])
         else:
-            new_width = width
-            new_height = height
+            img = Image.open(article.image)
+            width, height = img.size
 
-        image_sizes.append([new_width, new_height])
+            if width > max_side or height > max_side:
+                aspect_ratio = width / height
+                if width > height:
+                    new_width = max_side
+                    new_height = int(max_side / aspect_ratio)
+                else:
+                    new_height = max_side
+                    new_width = int(max_side * aspect_ratio)
+            else:
+                new_width = width
+                new_height = height
+
+        image_sizes.append([new_width / 2, new_height / 2])
     return image_sizes
 
 def show_start(request: Any):
